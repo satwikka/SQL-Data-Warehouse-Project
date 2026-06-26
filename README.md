@@ -1,83 +1,286 @@
-# SQL-Data-Warehouse-Project
-Building a mordern data warehouse with SQL Server, Including ETL Processes, Data modeling, and analystics.
-Data Warehouse and Analytics Project
-Welcome to the Data Warehouse and Analytics Project repository! 🚀
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
+# Modern SQL Data Warehouse Project
 
-🏗️ Data Architecture
-The data architecture for this project follows Medallion Architecture Bronze, Silver, and Gold layers: Data Architecture
+A hands-on data engineering project that demonstrates how to design and build a scalable **SQL Server Data Warehouse** using the **Medallion Architecture**. The project covers every stage of the data pipeline—from loading raw CSV files into SQL Server to creating business-ready datasets for reporting and analytics.
 
-Bronze Layer: Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database.
-Silver Layer: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.
-Gold Layer: Houses business-ready data modeled into a star schema required for reporting and analytics.
-📖 Project Overview
-This project involves:
+---
 
-Data Architecture: Designing a Modern Data Warehouse Using Medallion Architecture Bronze, Silver, and Gold layers.
-ETL Pipelines: Extracting, transforming, and loading data from source systems into the warehouse.
-Data Modeling: Developing fact and dimension tables optimized for analytical queries.
-Analytics & Reporting: Creating SQL-based reports and dashboards for actionable insights.
-🎯 This repository is an excellent resource for professionals and students looking to showcase expertise in:
+# Project Summary
 
-SQL Development
-Data Architect
-Data Engineering
-ETL Pipeline Developer
-Data Modeling
-Data Analytics
-🛠️ Important Links & Tools:
-Everything is for Free!
+The primary objective of this project is to centralize data from multiple business systems into a single analytical database. The warehouse is built using SQL Server and follows industry-standard ETL practices to transform raw operational data into structured, reliable, and analysis-ready information.
 
-Datasets: Access to the project dataset (csv files).
-SQL Server Express: Lightweight server for hosting your SQL database.
-SQL Server Management Studio (SSMS): GUI for managing and interacting with databases.
-Git Repository: Set up a GitHub account and repository to manage, version, and collaborate on your code efficiently.
-DrawIO: Design data architecture, models, flows, and diagrams.
-Notion: Get the Project Template from Notion
-Notion Project Steps: Access to All Project Phases and Tasks.
-🚀 Project Requirements
-Building the Data Warehouse (Data Engineering)
-Objective
-Develop a modern data warehouse using SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.
+The project demonstrates practical skills in:
 
-Specifications
-Data Sources: Import data from two source systems (ERP and CRM) provided as CSV files.
-Data Quality: Cleanse and resolve data quality issues prior to analysis.
-Integration: Combine both sources into a single, user-friendly data model designed for analytical queries.
-Scope: Focus on the latest dataset only; historization of data is not required.
-Documentation: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
-BI: Analytics & Reporting (Data Analysis)
-Objective
-Develop SQL-based analytics to deliver detailed insights into:
+* SQL Development
+* ETL Pipeline Design
+* Data Warehouse Architecture
+* Data Modeling
+* Data Quality Management
+* Business Analytics
 
-Customer Behavior
-Product Performance
-Sales Trends
-These insights empower stakeholders with key business metrics, enabling strategic decision-making.
+---
 
-For more details, refer to docs/requirements.md.
+# Solution Architecture
 
-📂 Repository Structure
+The warehouse is organized using the **Medallion Architecture**, which separates data into three logical layers.
+
+## Bronze Layer
+
+The Bronze layer acts as the landing zone for all incoming data.
+
+Data from ERP and CRM source systems is imported exactly as received without applying business transformations. This layer preserves the original datasets and serves as the foundation for all downstream processing.
+
+### Responsibilities
+
+* Import CSV files
+* Preserve original source data
+* Perform batch loading
+* Reload data using Truncate & Insert
+* Maintain raw datasets
+
+---
+
+## Silver Layer
+
+The Silver layer focuses on improving data quality.
+
+Raw datasets are cleaned, standardized, and transformed into consistent datasets suitable for business use. Any inconsistencies, formatting issues, duplicates, or invalid values are handled here.
+
+### Data Processing
+
+* Remove duplicate records
+* Clean invalid values
+* Standardize formats
+* Normalize data
+* Generate calculated columns
+* Enrich business information
+* Validate data quality
+
+---
+
+## Gold Layer
+
+The Gold layer delivers business-ready information.
+
+Cleaned datasets are integrated into a dimensional model using a **Star Schema**, making the warehouse optimized for reporting, dashboards, and analytical queries.
+
+### Deliverables
+
+* Fact Tables
+* Dimension Tables
+* Business Metrics
+* Analytical Views
+* Reporting Datasets
+
+---
+
+# Project Workflow
+
+```
+Source Systems
+(ERP & CRM CSV Files)
+        │
+        ▼
+Bronze Layer
+Raw Data Storage
+        │
+        ▼
+Silver Layer
+Data Cleaning & Transformation
+        │
+        ▼
+Gold Layer
+Business Data Model
+        │
+        ▼
+Reports & Analytics
+```
+
+---
+
+# ETL Pipeline
+
+The warehouse follows a traditional ETL workflow.
+
+## Extract
+
+* Import ERP datasets
+* Import CRM datasets
+* Read CSV source files
+
+## Transform
+
+* Data Cleansing
+* Data Validation
+* Data Standardization
+* Data Normalization
+* Business Rule Implementation
+* Derived Column Creation
+* Data Enrichment
+
+## Load
+
+Processed datasets are loaded into:
+
+* Bronze Tables
+* Silver Tables
+* Gold Tables
+
+---
+
+# Data Modeling
+
+The reporting layer is designed using a **Star Schema**, enabling fast analytical queries and simplified reporting.
+
+### Fact Table
+
+* Fact Sales
+
+### Dimension Tables
+
+* Customer
+* Product
+* Date
+* Territory
+
+---
+
+# Technologies Used
+
+| Technology                   | Purpose                    |
+| ---------------------------- | -------------------------- |
+| SQL Server Express           | Database Engine            |
+| SQL Server Management Studio | Database Management        |
+| SQL                          | ETL Development            |
+| Git & GitHub                 | Version Control            |
+| Draw.io                      | Architecture & Data Models |
+| Notion                       | Project Planning           |
+| CSV Files                    | Source Data                |
+
+---
+
+# Development Roadmap
+
+## Bronze Layer
+
+* Understand source systems
+* Develop ingestion scripts
+* Verify schema consistency
+* Validate imported records
+* Create ETL data flow diagrams
+* Store scripts in Git
+
+---
+
+## Silver Layer
+
+* Explore source data
+* Apply cleaning rules
+* Standardize datasets
+* Validate transformed data
+* Document transformation logic
+* Maintain version history
+
+---
+
+## Gold Layer
+
+* Design analytical model
+* Build Star Schema
+* Integrate business entities
+* Validate warehouse outputs
+* Prepare documentation
+* Perform deployment testing
+
+---
+
+# Business Objectives
+
+The warehouse enables organizations to answer important business questions through SQL analytics.
+
+Example analysis includes:
+
+* Customer purchasing behavior
+* Product performance
+* Revenue trends
+* Sales growth
+* Regional performance
+* Business KPIs
+* Customer segmentation
+
+---
+
+# Repository Structure
+
+```
 data-warehouse-project/
 │
-├── datasets/                           # Raw datasets used for the project (ERP and CRM data)
+├── datasets/
+│   ├── ERP/
+│   └── CRM/
 │
-├── docs/                               # Project documentation and architecture details
-│   ├── etl.drawio                      # Draw.io file shows all different techniquies and methods of ETL
-│   ├── data_architecture.drawio        # Draw.io file shows the project's architecture
-│   ├── data_catalog.md                 # Catalog of datasets, including field descriptions and metadata
-│   ├── data_flow.drawio                # Draw.io file for the data flow diagram
-│   ├── data_models.drawio              # Draw.io file for data models (star schema)
-│   ├── naming-conventions.md           # Consistent naming guidelines for tables, columns, and files
+├── docs/
+│   ├── data_architecture.drawio
+│   ├── data_flow.drawio
+│   ├── data_models.drawio
+│   ├── etl.drawio
+│   ├── data_catalog.md
+│   └── naming-conventions.md
 │
-├── scripts/                            # SQL scripts for ETL and transformations
-│   ├── bronze/                         # Scripts for extracting and loading raw data
-│   ├── silver/                         # Scripts for cleaning and transforming data
-│   ├── gold/                           # Scripts for creating analytical models
+├── scripts/
+│   ├── bronze/
+│   ├── silver/
+│   └── gold/
 │
-├── tests/                              # Test scripts and quality files
+├── tests/
 │
-├── README.md                           # Project overview and instructions
-├── LICENSE                             # License information for the repository
-├── .gitignore                          # Files and directories to be ignored by Git
-└── requirements.txt                    # Dependencies and requirements for the project
+├── README.md
+├── LICENSE
+├── requirements.txt
+└── .gitignore
+```
+
+---
+
+# Future Enhancements
+
+Possible improvements for future versions include:
+
+* Incremental Data Loading
+* Slowly Changing Dimensions (SCD)
+* SQL Server Agent Scheduling
+* Stored Procedures
+* Query Performance Optimization
+* Power BI Dashboards
+* Azure Data Factory Integration
+* Microsoft Fabric
+* CI/CD with GitHub Actions
+
+---
+
+# Skills Demonstrated
+
+This project showcases knowledge and practical implementation of:
+
+* Data Warehousing
+* SQL Programming
+* ETL Development
+* Data Modeling
+* Medallion Architecture
+* Star Schema Design
+* Data Validation
+* Data Transformation
+* Business Intelligence
+* Analytics Engineering
+* Git Version Control
+
+---
+
+# Acknowledgements
+
+This project was inspired by the SQL Data Warehouse tutorial created by **Data With Baraa**. It has been recreated as a learning project to strengthen practical knowledge of SQL, ETL development, and modern data warehousing concepts.
+
+---
+
+# License
+
+This repository follows the license provided with the original project. Please refer to the **LICENSE** file for complete licensing information.
