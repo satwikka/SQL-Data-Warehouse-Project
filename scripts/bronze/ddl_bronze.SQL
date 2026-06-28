@@ -1,4 +1,18 @@
+/*
+===============================================================================
+Create Bronze Layer Tables
+===============================================================================
 
+Purpose:
+    This DDL script prepares the Bronze layer of the data warehouse.
+
+    Tasks Performed:
+      • Removes existing Bronze tables if they already exist.
+      • Creates new Bronze tables with the required schema.
+      • Establishes the foundation for loading raw source data.
+
+===============================================================================
+*/
 
 USE DataWarehouse;
 
